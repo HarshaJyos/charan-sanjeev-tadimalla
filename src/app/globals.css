@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-inter: "Inter", sans-serif;
+  --font-nautigal: "The Nautigal", cursive;
 }
 
 @theme inline {
@@ -10,17 +12,33 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: "Inter", sans-serif;
+  --font-nautigal: "The Nautigal", cursive;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --font-inter: "Inter", sans-serif;
+    --font-nautigal: "The Nautigal", cursive;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-[radial-gradient(circle_at_center,#000000,#121212)];
+}
+
+/* Ensure fonts are applied correctly */
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+.font-nautigal {
+  font-family: var(--font-nautigal);
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
 }
