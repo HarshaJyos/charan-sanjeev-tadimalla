@@ -47,7 +47,7 @@ export const GallerySection = ({ id }: { id?: string }): JSX.Element => {
       span: "tall",
     },
     {
-      src: "/gallery/2.jpg",
+      src: "/gallery/8.jpg",
       alt: "Gallery Image 6",
       title: "Technology",
       span: "wide",

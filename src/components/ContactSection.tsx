@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { Linkedin, Mail, Twitter } from "lucide-react";
+import { Linkedin, Mail, Facebook, Instagram, Phone } from "lucide-react";
 
 const fieldVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -31,7 +31,7 @@ export const ContactSection = ({ id }: { id?: string }): JSX.Element => {
   const socialLinks = [
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/in/charan-sanjeev-tadimalla",
+      href: "https://www.linkedin.com/in/charansanjeev",
       icon: (
         <Linkedin
           size={24}
@@ -40,10 +40,20 @@ export const ContactSection = ({ id }: { id?: string }): JSX.Element => {
       ),
     },
     {
-      name: "Twitter",
-      href: "https://x.com/charansanjeev",
+      name: "Instagram",
+      href: "https://www.instagram.com/charan_sanjeev?igsh=ZWZhNnpieW43eDgy",
       icon: (
-        <Twitter
+        <Instagram
+          size={24}
+          className="text-white hover:text-gray-300 transition-colors duration-300"
+        />
+      ),
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/charansanjeev",
+      icon: (
+        <Facebook
           size={24}
           className="text-white hover:text-gray-300 transition-colors duration-300"
         />
@@ -51,9 +61,19 @@ export const ContactSection = ({ id }: { id?: string }): JSX.Element => {
     },
     {
       name: "Email",
-      href: "mailto:charan@example.com",
+      href: "mailto:cstadimalla@gmail.com",
       icon: (
         <Mail
+          size={24}
+          className="text-white hover:text-gray-300 transition-colors duration-300"
+        />
+      ),
+    },
+    {
+      name: "Phone",
+      href: "tel:+919642777062",
+      icon: (
+        <Phone
           size={24}
           className="text-white hover:text-gray-300 transition-colors duration-300"
         />
