@@ -39,7 +39,7 @@ export const AboutMeSection = ({ id }: { id?: string }): JSX.Element => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Image
-              src="/figmaAssets/image.png"
+              src="/about.jpg"
               alt="About Me Image"
               fill
               className="object-cover"

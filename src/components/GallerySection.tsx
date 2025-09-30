@@ -11,30 +11,61 @@ const itemVariants = {
 export const GallerySection = ({ id }: { id?: string }): JSX.Element => {
   const galleryImages = [
     {
-      src: "/figmaAssets/frame 64.svg",
+      src: "/gallery/1.jpg",
       alt: "Gallery Image 1",
       title: "Innovation & Leadership",
-      className: "col-span-2 row-span-2",
+      span: "tall", // tall, wide, or default
     },
     {
-      src: "/figmaAssets/frame 67.svg",
+      src: "/gallery/6.jpg",
       alt: "Gallery Image 2",
       title: "Startup Ecosystem",
-      className: "col-span-2",
+      span: "wide",
     },
     {
-      src: "/figmaAssets/image.png",
+      src: "/gallery/3.jpg",
       alt: "Gallery Image 3",
       title: "Professional Growth",
-      className: "col-span-1",
+      span: "default",
     },
     {
-      src: "/figmaAssets/Frame 68.svg",
+      src: "/gallery/4.jpg",
       alt: "Gallery Image 4",
       title: "Entrepreneurship",
-      className: "col-span-1",
+      span: "default",
+    },
+    {
+      src: "/gallery/2.jpg",
+      alt: "Gallery Image 6",
+      title: "Technology",
+      span: "tall",
+    },
+    {
+      src: "/gallery/5.jpg",
+      alt: "Gallery Image 5",
+      title: "Innovation",
+      span: "tall",
+    },
+    {
+      src: "/gallery/2.jpg",
+      alt: "Gallery Image 6",
+      title: "Technology",
+      span: "wide",
     },
   ];
+
+  const getSpanClass = (span: string) => {
+    switch (span) {
+      case "tall":
+        return "md:row-span-2";
+      case "wide":
+        return "md:col-span-2";
+      case "big":
+        return "md:col-span-2 md:row-span-2";
+      default:
+        return "";
+    }
+  };
 
   return (
     <section id={id} className="w-full py-6 sm:py-6 lg:py-8 relative">
@@ -49,7 +80,7 @@ export const GallerySection = ({ id }: { id?: string }): JSX.Element => {
           Gallery
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 auto-rows-[180px] sm:auto-rows-[200px] lg:auto-rows-[250px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 auto-rows-[200px] sm:auto-rows-[220px] lg:auto-rows-[240px]">
           {galleryImages.map((image, index) => (
             <motion.div
               key={index}
@@ -62,16 +93,18 @@ export const GallerySection = ({ id }: { id?: string }): JSX.Element => {
                 delay: index * 0.1,
                 ease: "easeOut",
               }}
-              className={`${image.className} group relative rounded-[20px] border border-white/20 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300`}
+              className={`${getSpanClass(
+                image.span
+              )} relative rounded-[20px] border border-white/20 overflow-hidden shadow-lg`}
             >
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <h3 className="font-semibold text-white text-base sm:text-lg lg:text-xl text-center px-4 font-inter">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
+                <h3 className="font-semibold text-white text-base sm:text-lg p-4 font-inter">
                   {image.title}
                 </h3>
               </div>
