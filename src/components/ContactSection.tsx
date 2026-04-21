@@ -1,293 +1,134 @@
 "use client";
 import React, { JSX, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { motion } from "framer-motion";
-import { Linkedin, Mail, Facebook, Instagram, Phone } from "lucide-react";
-
-const fieldVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+import { Linkedin, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 
 export const ContactSection = ({ id }: { id?: string }): JSX.Element => {
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-
-  const formFields = [
-    { id: "name", label: "Name", type: "input", placeholder: "Your Name" },
-    { id: "email", label: "Email", type: "input", placeholder: "Your Email" },
-    {
-      id: "message",
-      label: "Message",
-      type: "textarea",
-      placeholder: "Your Message",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/in/charansanjeev",
-      icon: (
-        <Linkedin
-          size={24}
-          className="text-white hover:text-gray-300 transition-colors duration-300"
-        />
-      ),
-    },
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/charan_sanjeev?igsh=ZWZhNnpieW43eDgy",
-      icon: (
-        <Instagram
-          size={24}
-          className="text-white hover:text-gray-300 transition-colors duration-300"
-        />
-      ),
-    },
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/charansanjeev",
-      icon: (
-        <Facebook
-          size={24}
-          className="text-white hover:text-gray-300 transition-colors duration-300"
-        />
-      ),
-    },
-    {
-      name: "Email",
-      href: "mailto:cstadimalla@gmail.com",
-      icon: (
-        <Mail
-          size={24}
-          className="text-white hover:text-gray-300 transition-colors duration-300"
-        />
-      ),
-    },
-    {
-      name: "Phone",
-      href: "tel:+919642777062",
-      icon: (
-        <Phone
-          size={24}
-          className="text-white hover:text-gray-300 transition-colors duration-300"
-        />
-      ),
-    },
-  ];
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
     try {
-      const response = await fetch("https://formspree.io/f/xovkdnzr", {
+      const res = await fetch("https://formspree.io/f/xovkdnzr", {
         method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        body: new FormData(e.currentTarget),
+        headers: { Accept: "application/json" },
       });
-
-      const data = await response.json();
-
-      // Formspree returns {"ok": true, "next": "..."} on success
-      if (response.ok && data.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch (error) {
-      console.error("Form submission error:", error);
+      if (res.ok) setStatus("success");
+      else setStatus("error");
+    } catch {
       setStatus("error");
     }
   };
 
   return (
-    <section id={id} className="w-full py-6 sm:py-4 lg:py-6 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          className="font-bold text-white text-4xl sm:text-5xl lg:text-6xl text-center tracking-tight leading-tight font-inter mb-8 sm:mb-12 lg:mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          Contact Me
-        </motion.h2>
+    <section id={id} className="bg-white/20 py-24 md:py-32 relative overflow-hidden">
+      <div className="container  height-full overflow-hidden">
 
-        <motion.p
-          className="text-white/80 text-base sm:text-lg lg:text-xl text-center font-inter max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-16 leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Let&apos;s collaborate to build the future of entrepreneurship!
-          Whether you&apos;re a startup founder, innovator, or seeking
-          mentorship, I&apos;m here to connect and create impactful solutions
-          together.
-        </motion.p>
+        {/* Massive Reference Heading */}
+        <div className="mb-20 md:mb-32 flex justify-center">
+          <h2 className="font-display text-8xl  font-bold text-black leading-[0.8]">
+            Let's Connect
+          </h2>
+        </div>
 
-        <div className="w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto">
-          <motion.div
-            className="bg-white/5 backdrop-blur-md rounded-3xl border border-white/20 p-6 sm:p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-shadow duration-300"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32">
+
+          {/* Left Column: Socials & Contact Details */}
+          <div className="flex flex-col gap-12 text-black/80">
+            <div className="flex flex-col gap-4">
+              <a href="mailto:cstadimalla@gmail.com" className="font-inter text-sm md:text-base hover:text-black transition-colors">cstadimalla@gmail.com</a>
+              <a href="tel:+919642777062" className="font-inter text-sm md:text-base hover:text-black transition-colors">+91 96427 77062</a>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <p className="font-inter text-sm md:text-base">Aditya University, EDC Office</p>
+              <p className="font-inter text-sm md:text-base">Surampalem, Andhra Pradesh</p>
+            </div>
+
+            {/* Social Media Integration */}
+            <div className="pt-8 flex flex-col gap-6">
+              <span className="font-inter text-[10px] uppercase font-bold tracking-[0.4em] text-black/40">Social Platforms</span>
+              <div className="flex flex-col gap-4">
+                <a href="https://linkedin.com/in/charansanjeev" target="_blank" className="flex items-center gap-3 font-inter text-sm hover:text-royal transition-colors group">
+                  <Linkedin size={16} className="text-black/20 group-hover:text-royal" /> LinkedIn
+                </a>
+                <a href="https://instagram.com/charan_sanjeev" target="_blank" className="flex items-center gap-3 font-inter text-sm hover:text-amber transition-colors group">
+                  <Instagram size={16} className="text-black/20 group-hover:text-amber" /> Instagram
+                </a>
+                <a href="https://twitter.com" target="_blank" className="flex items-center gap-3 font-inter text-sm hover:text-royal transition-colors group">
+                  <Twitter size={16} className="text-black/20 group-hover:text-royal" /> Twitter / X
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Reference Form */}
+          <div>
             {status === "success" ? (
-              <motion.div
-                className="space-y-6"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="text-center p-6 bg-green-500/10 border border-green-500/30 rounded-2xl">
-                  <div className="text-5xl mb-4">✅</div>
-                  <p className="text-green-400 font-bold font-inter text-xl mb-2">
-                    Message sent successfully!
-                  </p>
-                  <p className="text-white/70 text-base">
-                    Thanks for reaching out. I&apos;ll get back to you as soon
-                    as possible.
-                  </p>
-                </div>
-                <Button
-                  type="button"
-                  onClick={() => setStatus("idle")}
-                  className="w-full h-12 sm:h-14 rounded-xl border-2 border-white bg-transparent text-white hover:bg-white hover:text-black transition duration-300 text-base sm:text-lg font-semibold font-inter"
-                >
-                  Send Another Message
-                </Button>
-              </motion.div>
-            ) : status === "error" ? (
-              <motion.div
-                className="space-y-6"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="text-center p-6 bg-red-500/10 border border-red-500/30 rounded-2xl">
-                  <div className="text-5xl mb-4">❌</div>
-                  <p className="text-red-400 font-bold font-inter text-xl mb-2">
-                    Something went wrong
-                  </p>
-                  <p className="text-white/70 text-base">
-                    Please try again or contact me directly via email.
-                  </p>
-                </div>
-                <Button
-                  type="button"
-                  onClick={() => setStatus("idle")}
-                  className="w-full h-12 sm:h-14 rounded-xl border-2 border-white bg-transparent text-white hover:bg-white hover:text-black transition duration-300 text-base sm:text-lg font-semibold font-inter"
-                >
-                  Try Again
-                </Button>
-              </motion.div>
+              <div className="h-full flex flex-col justify-center py-10">
+                <h3 className="font-display text-4xl text-black mb-6">Thank you.</h3>
+                <p className="font-inter text-black/60 mb-10">Message received. I will respond shortly.</p>
+                <button onClick={() => setStatus("idle")} className="text-black/40 font-bold uppercase text-[10px] tracking-widest hover:text-black transition-colors">Send another</button>
+              </div>
             ) : (
-              <form className="space-y-6 sm:space-y-8" onSubmit={handleSubmit}>
-                {formFields.map((field, index) => (
-                  <motion.div
-                    key={field.id}
-                    variants={fieldVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="space-y-3"
-                  >
-                    <Label
-                      htmlFor={field.id}
-                      className="font-semibold text-white text-base sm:text-lg font-inter"
-                    >
-                      {field.label}
-                    </Label>
-                    {field.type === "input" ? (
-                      <Input
-                        id={field.id}
-                        name={field.id}
-                        type={field.id === "email" ? "email" : "text"}
-                        placeholder={field.placeholder}
-                        required
-                        disabled={status === "loading"}
-                        className="h-12 rounded-xl border border-white/30 bg-white/5 text-white placeholder:text-gray-400 text-base sm:text-lg font-inter focus:border-white/50 focus:ring-2 focus:ring-white/20 transition duration-300 disabled:opacity-50"
-                      />
-                    ) : (
-                      <Textarea
-                        id={field.id}
-                        name={field.id}
-                        placeholder={field.placeholder}
-                        required
-                        disabled={status === "loading"}
-                        className="min-h-[100px] sm:min-h-[120px] rounded-xl border border-white/30 bg-white/5 text-white placeholder:text-gray-400 text-base sm:text-lg font-inter focus:border-white/50 focus:ring-2 focus:ring-white/20 transition duration-300 resize-none disabled:opacity-50"
-                      />
-                    )}
-                  </motion.div>
-                ))}
+              <form onSubmit={handleSubmit} className="flex flex-col gap-12">
+                <div className="flex flex-col gap-3">
+                  <label className="font-inter text-[10px] uppercase font-bold tracking-widest text-black/40">Name (required)</label>
+                  <input
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Full Name"
+                    className="w-full bg-transparent border-b border-black/20 py-4 font-inter text-base text-black focus:outline-none focus:border-black transition-all placeholder:text-black/5"
+                  />
+                </div>
 
-                <motion.div
-                  className="pt-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                  <Button
+                <div className="flex flex-col gap-3">
+                  <label className="font-inter text-[10px] uppercase font-bold tracking-widest text-black/40">Email (required)</label>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="email@example.com"
+                    className="w-full bg-transparent border-b border-black/20 py-4 font-inter text-base text-black focus:outline-none focus:border-black transition-all placeholder:text-black/5"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <label className="font-inter text-[10px] uppercase font-bold tracking-widest text-black/40">Message (required)</label>
+                  <textarea
+                    name="message"
+                    required
+                    rows={4}
+                    placeholder="Your Message"
+                    className="w-full bg-transparent border-b border-black/20 py-4 font-inter text-base text-black focus:outline-none focus:border-black transition-all placeholder:text-black/5 resize-none"
+                  />
+                </div>
+
+                <div className="pt-6">
+                  <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full h-12 sm:h-14 rounded-xl border-2 border-white bg-transparent text-white hover:bg-white hover:text-black transition duration-300 text-base sm:text-lg font-semibold font-inter disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="
+      px-10 py-3
+      bg-black text-white
+      text-[15px] font-medium uppercase tracking-wider
+      rounded-md
+      border border-white/10
+      transition-all duration-200
+      hover:border-black
+      active:scale-[0.98]
+      disabled:opacity-50 disabled:cursor-not-allowed
+    "
                   >
-                    {status === "loading" ? (
-                      <span className="flex items-center justify-center gap-2">
-                        <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        Sending...
-                      </span>
-                    ) : (
-                      "Submit"
-                    )}
-                  </Button>
-                </motion.div>
+                    {status === "loading" ? "Processing..." : "Submit"}
+                  </button>
+                </div>
               </form>
             )}
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="mt-8 sm:mt-12 flex justify-center gap-6 sm:gap-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            {socialLinks.map((link, index) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="group"
-                aria-label={link.name}
-              >
-                {link.icon}
-              </motion.a>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>

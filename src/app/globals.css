@@ -1,44 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Octa Palette - Luxury Minimalist */
+  --color-bg: #F8FAFC;
+  --color-navy: #0B1F3B;
+  --color-charcoal: #111827;
+  --color-muted: #64748B;
+  --color-royal: #1E4ED8;
+  --color-amber: #F59E0B;
+  --color-teal: #0F766E;
+  --color-emerald: #16A34A;
+
   --font-inter: "Inter", sans-serif;
-  --font-nautigal: "The Nautigal", cursive;
+  --font-display: "Playfair Display", serif;
+  
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-inter: "Inter", sans-serif;
-  --font-nautigal: "The Nautigal", cursive;
+@theme {
+  --color-navy: var(--color-navy);
+  --color-royal: var(--color-royal);
+  --color-teal: var(--color-teal);
+  --color-emerald: var(--color-emerald);
+  --color-amber: var(--color-amber);
+  --color-muted: var(--color-muted);
+  --color-charcoal: var(--color-charcoal);
+  --color-bg: var(--color-bg);
+  
+  /* Required for @apply font-inter etc. to work in Tailwind v4 */
+  --font-inter: var(--font-inter);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --font-inter: "Inter", sans-serif;
-    --font-nautigal: "The Nautigal", cursive;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  @apply bg-[radial-gradient(circle_at_center,#000000,#121212)];
-}
-
-/* Ensure fonts are applied correctly */
-.font-inter {
+  background-color: var(--color-bg);
+  color: var(--color-charcoal);
   font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-.font-nautigal {
-  font-family: var(--font-nautigal);
+/* ─── Layout & Utility ─────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-/* Smooth scroll for anchor links */
-html {
-  scroll-behavior: smooth;
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+.section-padding {
+  padding-top: clamp(5rem, 10vw, 9rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+}
+
+/* ─── Typography ───────────────────────────────────── */
+
+h1, h2, h3, h4 {
+  color: var(--color-navy);
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Custom UI Elements ───────────────────────────── */
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(11, 31, 59, 0.05);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center px-8 py-4 bg-navy text-white rounded-full font-inter text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:bg-royal hover:shadow-2xl hover:shadow-royal/20 active:scale-95;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-8 py-4 bg-amber text-navy rounded-full font-inter text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 hover:shadow-2xl hover:shadow-amber/30 active:scale-95;
+}
+
+/* ─── Grain Effect ─────────────────────────────────── */
+
+.grain-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+}
+
+/* ─── Animation Utilities ──────────────────────────── */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(10px);
+  transition: all 1.2s var(--ease-premium);
+}
+
+.reveal-up.active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }

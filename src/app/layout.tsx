@@ -1,37 +1,42 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { SocialIcons } from "@/components/SocialIcons";
 
-// Initialize Inter font with multiple weights
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-// Initialize The Nautigal font
-const nautigal = localFont({
-  src: [
-    {
-      path: "../../public/fonts/TheNautigal-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/TheNautigal-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-nautigal",
+const playfair = Playfair_Display({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Charan Sanjeev Tadimalla | Entrepreneurship Professional",
+  title: "Charan Sanjeev Tadimalla | Entrepreneurship Development Professional",
   description:
-    "Portfolio of Charan Sanjeev Tadimalla, an entrepreneurship development professional with over 5 years of experience mentoring startups and fostering innovation.",
+    "Portfolio of Charan Sanjeev Tadimalla — EDC Coordinator, Startup Mentor, and Ecosystem Builder with 5+ years of experience driving entrepreneurship development across universities, government initiatives, and grassroots ventures.",
+  keywords: [
+    "Charan Sanjeev Tadimalla",
+    "Entrepreneurship Development",
+    "Startup Mentor",
+    "EDC Coordinator",
+    "GetMyTailor",
+    "Aditya University",
+    "Incubation Program",
+    "SIYB Trainer",
+  ],
+  authors: [{ name: "Charan Sanjeev Tadimalla" }],
+  openGraph: {
+    title: "Charan Sanjeev Tadimalla | Entrepreneurship Development Professional",
+    description:
+      "EDC Coordinator · Startup Mentor · Ecosystem Builder · Founder of GetMyTailor",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -40,12 +45,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${nautigal.variable} antialiased bg-[radial-gradient(circle_at_center,#000000,#000000)]`}
+        className={`${inter.variable} ${playfair.variable} antialiased`}
+        style={{ background: "var(--color-bg)", fontFamily: "var(--font-inter)" }}
       >
         {children}
-        <SocialIcons />
       </body>
     </html>
   );

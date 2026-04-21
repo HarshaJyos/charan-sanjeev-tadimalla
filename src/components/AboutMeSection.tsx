@@ -1,76 +1,104 @@
 "use client";
 import React, { JSX } from "react";
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+const stats = [
+  { value: "200+", label: "Startups Mentored", color: "var(--color-emerald)" },
+  { value: "500+", label: "Entrepreneurs Trained", color: "var(--color-royal)" },
+  { value: "5+", label: "Years Experience", color: "var(--color-teal)" },
+  { value: "01", label: "National Award", color: "var(--color-amber)" },
+];
 
 export const AboutMeSection = ({ id }: { id?: string }): JSX.Element => {
-  const aboutMeItems = [
-    "Began my journey as a student innovator and founder of GetMyTailor, earning recognition from the Government of Andhra Pradesh and the Wonder Book of World Records.",
-    "Transitioned into ecosystem-building roles as Incubation Manager, Startups Coordinator, and now EDC Coordinator at Aditya University, fostering innovation and entrepreneurship.",
-    "Hold certifications from MSME, Ministry of Food Processing, and ILO as a Trainer of Trainers in SIYB and Women in Digital Business.",
-    "Bring over 5 years of experience mentoring startups, managing incubation programs, and supporting women entrepreneurs, student innovators, and grassroots ventures.",
-    "Guided by a vision to make entrepreneurship accessible, inclusive, and impactful, with a mission to empower changemakers through mentorship, collaboration, and sustainable ecosystem development.",
-  ];
-
   return (
-    <section id={id} className="w-full py-4 sm:py-4 lg:py-4 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold text-center tracking-tight leading-tight font-inter mb-6 sm:mb-8 lg:mb-10"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          About Me
-        </motion.h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-4 items-center">
+    <section id={id} className="section-padding bg-white relative overflow-hidden">
+      {/* Background Decorative Text */}
+      <div className="absolute top-1/2 Right-40 -translate-y-1/2 pointer-events-none opacity-[0.1] font-display font-bold text-[20vw] whitespace-nowrap text-navy">
+        FOUNDER
+      </div>
+
+      <div className="container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+
+          {/* Left: Cinematic Portrait */}
           <motion.div
-            className="hidden sm:block relative w-full max-w-[450px] sm:max-w-[500px] lg:max-w-[600px] aspect-square rounded-[24px] border border-white/20 shadow-2xl overflow-hidden mx-auto"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 sticky -top-10"
           >
-            <Image
-              src="/about.jpg"
-              alt="About Me Image"
-              fill
-              className="object-cover"
-            />
+            <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl group">
+              <Image
+                src="/about.jpg"
+                alt="Charan Sanjeev Tadimalla"
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent" />
+            </div>
           </motion.div>
 
-          <div className="flex flex-col w-full max-w-[450px] sm:max-w-[550px] lg:max-w-[600px] gap-4 sm:gap-6 mx-auto">
-            {aboutMeItems.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                  ease: "easeOut",
-                }}
-                className="w-full"
-              >
-                <Card className="rounded-[16px] border border-white/20 bg-white/5 backdrop-blur-md shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <CardContent className="p-3 sm:p-5">
-                    <p className="text-white text-sm sm:text-base lg:text-lg font-medium leading-relaxed font-inter">
-                      {item}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+          {/* Right: The Narrative */}
+          <div className="lg:col-span-7 pt-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="font-inter text-xs font-bold uppercase tracking-[0.4em] text-royal mb-10">
+                The Founder & Architect
+              </h2>
+              <h3 className="font-display text-4xl md:text-5xl lg:text-6xl text-navy leading-[1.1] mb-12 font-bold tracking-tight">
+                Empowering the next generation of global innovators.
+              </h3>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex flex-col gap-8 mb-16"
+            >
+              <p className="font-inter text-lg lg:text-xl text-charcoal leading-relaxed font-medium">
+                Charan Sanjeev Tadimalla is an entrepreneurship development professional and ecosystem builder.
+                His mission is to move beyond theory, architecting the structural environments where founders can fail fast, fix intelligently, and scale exponentially.
+              </p>
+
+              <div className="h-[1px] w-full bg-navy/5" />
+
+              <p className="font-inter text-black leading-relaxed">
+                As the EDC Coordinator at Aditya University and a certified ILO Trainer, Charan has bridged the gap between academic research and commercial viability.
+                Starting his own journey with <strong>GetMyTailor</strong>—India&apos;s first vernacular online tailoring platform—he experienced first-hand the friction points of building from zero.
+                Today, he uses that operational empathy to mentor over 200 startups across sectors.
+              </p>
+            </motion.div>
+
+            {/* Achievement Grid */}
+            <div className="grid grid-cols-2 gap-8 border-t border-navy/5 pt-12">
+              {stats.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 + 0.4 }}
+                >
+                  <p className="font-display text-4xl font-bold mb-1" style={{ color: stat.color }}>
+                    {stat.value}
+                  </p>
+                  <p className="font-inter text-[10px] uppercase font-bold tracking-[0.2em] text-muted">
+                    {stat.label}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
+
         </div>
       </div>
     </section>
