@@ -1,20 +1,15 @@
 "use client";
 import React, { JSX } from "react";
-import { Linkedin, Instagram, Facebook, ArrowUp } from "lucide-react";
 
 export const Footer = (): JSX.Element => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    <footer className="bg-navy/10 py-20 border-t border-navy/5">
+    <footer className="bg-black/10 py-20 border-t border-navy/5 flex flex-col justify-center min-h-55">
       <div className="container">
 
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20 ">
           <div className="max-w-xs">
             <a href="#home" className="font-display font-bold text-3xl text-navy block mb-6">
-              Charan<span className="text-royal">.</span>
+              Charan
             </a>
             <p className="font-inter text-muted text-sm leading-relaxed">
               Architecting ecosystems where innovation lives. Available for global speaking and consultancy on startup infrastructure.

@@ -1,6 +1,6 @@
 "use client";
 import React, { JSX, useState } from "react";
-import { Linkedin, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Instagram, Twitter } from "lucide-react";
 
 export const ContactSection = ({ id }: { id?: string }): JSX.Element => {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -22,15 +22,16 @@ export const ContactSection = ({ id }: { id?: string }): JSX.Element => {
   };
 
   return (
-    <section id={id} className="bg-white/20 py-24 md:py-32 relative overflow-hidden">
-      <div className="container  height-full overflow-hidden">
+    <section id={id} className="bg-white/20 pt-32 md:pt-40 py-24 md:py-32 pb-48 md:pb-64 relative overflow-hidden min-h-screen top-27">
+      <div className="container mx-auto px-6 max-w-7xl">
 
         {/* Massive Reference Heading */}
-        <div className="mb-20 md:mb-32 flex justify-center">
-          <h2 className="font-display text-8xl  font-bold text-black leading-[0.8]">
-            Let's Connect
+        <div className="mb-20 md:mb-32 flex justify-center md:-mt-20">
+          <h2 className="font-display text-8xl font-bold text-black leading-[0.8]">
+            Let&apos;s Connect
           </h2>
         </div>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32">
 
@@ -113,7 +114,7 @@ export const ContactSection = ({ id }: { id?: string }): JSX.Element => {
                     className="
       px-10 py-3
       bg-black text-white
-      text-[15px] font-medium uppercase tracking-wider
+      text-[20px] font-medium uppercase tracking-wider
       rounded-md
       border border-white/10
       transition-all duration-200

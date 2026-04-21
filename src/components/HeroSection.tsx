@@ -7,7 +7,7 @@ export const HeroSection = ({ id }: { id?: string }): JSX.Element => {
   return (
     <section
       id={id}
-      className="relative w-full min-h-[90vh] md:min-h-screen flex flex-col justify-center overflow-hidden bg-bg grain-bg"
+      className="relative w-full min-h-[90vh] md:min-h-screen flex flex-col justify-center overflow-hidden bg-white"
     >
       {/* Structural Background Accents */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-navy/[0.01] border-l border-navy/[0.03] pointer-events-none" />
@@ -16,20 +16,6 @@ export const HeroSection = ({ id }: { id?: string }): JSX.Element => {
 
       <div className="container relative z-10 pt-32 md:pt-40">
         <div className="max-w-5xl">
-
-          {/* Status Badge */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-3 mb-12 px-4 py-2 bg-white border border-navy/5 rounded-full shadow-sm"
-          >
-            <div className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
-            <span className="font-inter text-[9px] font-bold uppercase tracking-[0.3em] text-navy/60">
-              Ecosystem Architect & Strategic Founder
-            </span>
-          </motion.div>
-
           {/* High-Impact Name */}
           <motion.div
             initial={{ opacity: 0, y: 50, filter: "blur(15px)" }}
@@ -37,12 +23,12 @@ export const HeroSection = ({ id }: { id?: string }): JSX.Element => {
             transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
             <h1 className="font-display text-[14vw] md:text-[9vw] lg:text-[8.5vw] leading-[0.9] text-navy font-bold tracking-tight mb-12">
-              Charan Sanjeev <br /> Tadimalla<span className="text-royal">.</span>
+              Charan Sanjeev <br /> Tadimalla
             </h1>
           </motion.div>
 
           {/* Structural Line & Tagline Group */}
-          <div className="flex flex-col md:flex-row items-start md:items-end gap-10 md:gap-20">
+          <div className="flex flex-col md:flex-row items-start md:items-end gap-10 md:gap-1">
             <motion.div
               initial={{ scaleY: 0, transformOrigin: "top" }}
               animate={{ scaleY: 1 }}

@@ -13,10 +13,6 @@ const stats = [
 export const AboutMeSection = ({ id }: { id?: string }): JSX.Element => {
   return (
     <section id={id} className="section-padding bg-white relative overflow-hidden">
-      {/* Background Decorative Text */}
-      <div className="absolute top-1/2 Right-40 -translate-y-1/2 pointer-events-none opacity-[0.1] font-display font-bold text-[20vw] whitespace-nowrap text-navy">
-        FOUNDER
-      </div>
 
       <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">

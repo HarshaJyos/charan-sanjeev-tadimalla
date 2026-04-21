@@ -2,7 +2,6 @@
 import React, { JSX } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 
 const ventures = [
   {
@@ -66,9 +65,6 @@ export const SelectedVentures = ({ id }: { id?: string }): JSX.Element => {
             viewport={{ once: true }}
             className="hidden md:block pb-4"
           >
-            <span className="font-inter text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
-              Slide to explore case studies
-            </span>
           </motion.div>
         </div>
 
@@ -88,24 +84,14 @@ export const SelectedVentures = ({ id }: { id?: string }): JSX.Element => {
                   src={project.image}
                   alt={project.name}
                   fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                  className="object-cover transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 bg-navy/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                {/* Floating Category */}
-                <div className="absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full border border-navy/5 shadow-sm">
-                  <span className="font-inter text-[9px] font-bold uppercase tracking-widest text-royal">
-                    {project.category}
-                  </span>
-                </div>
               </div>
 
               <div className="px-4">
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="font-display text-2xl font-bold text-navy">{project.name}</h4>
-                  <button className="w-12 h-12 rounded-full border border-navy/10 flex items-center justify-center text-navy transition-all duration-300 hover:bg-navy hover:text-white group-hover:shadow-lg">
-                    <ArrowUpRight size={20} />
-                  </button>
                 </div>
 
                 <p className="font-inter text-muted text-sm leading-relaxed mb-8">

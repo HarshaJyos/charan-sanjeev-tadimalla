@@ -42,7 +42,7 @@ export const ImpactMilestones = ({ id }: { id?: string }): JSX.Element => {
   return (
     <section id={id} className="section-padding bg-white relative">
       <div className="container relative">
-        
+
         <div className="flex flex-col items-center text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -69,7 +69,7 @@ export const ImpactMilestones = ({ id }: { id?: string }): JSX.Element => {
               const isEven = i % 2 === 0;
               return (
                 <div key={i} className="relative flex flex-col md:flex-row items-center">
-                  
+
                   {/* Timeline Node */}
                   <div className="absolute left-[30px] md:left-1/2 -translate-x-1/2 z-10">
                     <div className="w-10 h-10 rounded-full bg-white border border-navy/10 flex items-center justify-center shadow-lg text-emerald">
@@ -87,10 +87,10 @@ export const ImpactMilestones = ({ id }: { id?: string }): JSX.Element => {
                       className={`w-full md:w-[45%] ml-16 md:ml-0 ${isEven ? "md:text-right" : "md:text-left"}`}
                     >
                       <div className={`flex flex-col ${isEven ? "md:items-end" : "md:items-start"}`}>
-                        <span className="font-display text-6xl font-bold text-navy/5 mb-2 block">{item.year}</span>
+                        <span className="font-display text-6xl font-bold text-navy/7 mb-2 block">{item.year}</span>
                         <h4 className="font-display text-2xl font-bold text-navy mb-2 tracking-tight">{item.title}</h4>
                         <p className="font-inter text-xs font-bold uppercase tracking-widest text-emerald mb-4">{item.location}</p>
-                        
+
                         <p className="font-inter text-muted leading-relaxed mb-6">
                           {item.impact}
                         </p>

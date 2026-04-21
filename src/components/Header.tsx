@@ -16,7 +16,7 @@ export const Header = (): JSX.Element => {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -24,67 +24,79 @@ export const Header = (): JSX.Element => {
 
   return (
     <>
-      {/* ─── Standard Sticky Header ────────────────────────── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-100 transition-all duration-300 w-full ${scrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-navy/[0.05] py-4"
-          : "bg-transparent border-b border-transparent py-6 md:py-8"
+        className={`fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-500 ease-premium ${scrolled
+            ? "bg-white/80 backdrop-blur-xl border-b border-navy/5 shadow-sm py-4"
+            : "bg-transparent py-6 md:py-8"
           }`}
       >
         <div className="container flex items-center justify-between">
-
-          {/* Logo - Always Left */}
-          <a href="#home" className="font-display font-bold text-2xl tracking-tighter text-navy shrink-0">
-            Charan<span className="text-royal">.</span>
+          {/* Logo */}
+          <a
+            href="#home"
+            className="group flex items-center gap-1 transition-transform duration-300 hover:scale-[1.02]"
+          >
+            <span className="font-display font-bold text-2xl tracking-tighter text-navy">
+              Charan
+              <span className="text-royal relative transition-all duration-300 group-hover:left-0.5">.</span>
+            </span>
           </a>
 
-          {/* Navigation - Always Right */}
-          <nav className="hidden md:flex items-center gap-10">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8 lg:gap-12">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="font-inter text-[11px] font-bold uppercase tracking-[0.22em] text-muted hover:text-navy transition-colors whitespace-nowrap"
+                className="relative font-inter text-[11px] font-bold uppercase tracking-[0.2em] text-navy/60 hover:text-navy transition-colors duration-300 group"
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-royal transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </nav>
-
-          {/* Mobile Menu Icon */}
+          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-navy"
+            className="md:hidden relative z-[110] p-2 text-navy hover:text-royal transition-colors bg-white/50 backdrop-blur-sm rounded-full"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Navigation"
           >
-            {isOpen ? <X size={26} /> : <Menu size={26} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </header>
 
-      {/* Simple Mobile Menu */}
-      {isOpen && (
-        <div className="fixed inset-0 z-[60] bg-white flex flex-col p-10 md:hidden">
-          <div className="flex justify-between items-center mb-16">
-            <span className="font-display font-bold text-2xl text-navy">Charan.</span>
-            <button onClick={() => setIsOpen(false)} className="text-navy">
-              <X size={32} strokeWidth={1.5} />
-            </button>
-          </div>
+      {/* Mobile Navigation Overlay */}
+      <div
+        className={`fixed inset-0 z-[105] bg-white transition-all duration-700 ease-premium md:hidden ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none translate-y-4"
+          }`}
+      >
+        <div className="h-full flex flex-col px-8 py-24">
           <nav className="flex flex-col gap-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="font-display font-bold text-4xl text-navy"
+                className={`font-display text-5xl font-bold text-navy hover:text-royal transition-all duration-500 delay-[${index * 100}ms] ${isOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                  }`}
               >
                 {item.label}
               </a>
             ))}
           </nav>
+
+          <div className="mt-auto pt-10 border-t border-navy/10">
+            <p className="text-muted text-sm font-medium mb-4">Get in touch</p>
+            <a
+              href="mailto:contact@charansanjeev.com"
+              className="text-2xl font-display font-medium text-navy active:text-royal transition-colors"
+            >
+              hello@charansanjeev.com
+            </a>
+          </div>
         </div>
-      )}
+      </div>
     </>
   );
 };

@@ -5,7 +5,7 @@ import { Sparkles } from "lucide-react";
 
 export const VisionPhilosophy = ({ id }: { id?: string }): JSX.Element => {
   return (
-    <section id={id} className="section-padding bg-black/20 relative overflow-hidden">
+    <section id={id} className="section-padding bg-black/10 relative overflow-hidden min-h-screen">
       {/* Decorative Gradient Overlay */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal rounded-full blur-[160px]" />
@@ -46,13 +46,13 @@ export const VisionPhilosophy = ({ id }: { id?: string }): JSX.Element => {
           >
             <div className="flex flex-col gap-4">
               <span className="font-inter text-[10px] font-bold uppercase tracking-[0.4em] text-teal">Vision</span>
-              <p className="font-display text-2xl text-white/90 leading-tight">
+              <p className="font-display text-2xl text-gray/20 leading-tight">
                 To bridge the structural gap between raw potential and commercial impact across the global startup ecosystem.
               </p>
             </div>
             <div className="flex flex-col gap-4">
               <span className="font-inter text-[10px] font-bold uppercase tracking-[0.4em] text-teal">Philosophy</span>
-              <p className="font-inter text-white/60 leading-relaxed">
+              <p className="font-inter text-gray/20 leading-relaxed">
                 Innovation thrives where operational friction is removed. I focus on architecting the environments where founders can move from chaos to clarity, leveraging hands-on experience to build ventures that actually last.
               </p>
             </div>
