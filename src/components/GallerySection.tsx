@@ -58,7 +58,7 @@ const galleryItems = [
 
 export const GallerySection = ({ id }: { id?: string }): JSX.Element => {
   return (
-    <section id={id} className="section-padding bg-navy/5 relative overflow-hidden">
+    <section id={id} className="section-padding bg-white-950 relative overflow-hidden">
       {/* Background Accents */}
       <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-white to-transparent pointer-events-none" />
 
@@ -72,12 +72,12 @@ export const GallerySection = ({ id }: { id?: string }): JSX.Element => {
             className="mb-6 flex items-center gap-3 text-muted"
           >
             <Heart size={14} className="text-amber" />
-            <span className="font-inter text-[10px] font-bold uppercase tracking-[0.4em]">
+            <span className="font-inter text-[10px] font-black uppercase tracking-[0.5em]">
               Memories & Moments
             </span>
           </motion.div>
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-navy tracking-tight">
-            The visual journey of <br /> entrepreneurship.
+          <h2 className="font-display text-5xl md:text-6xl font-black text-navy tracking-tighter leading-[0.95]">
+            The visual journey of <br className="hidden md:block" /> entrepreneurship.
           </h2>
         </div>
 

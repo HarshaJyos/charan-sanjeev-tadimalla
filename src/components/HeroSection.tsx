@@ -22,7 +22,7 @@ export const HeroSection = ({ id }: { id?: string }): JSX.Element => {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className="font-display text-[14vw] md:text-[9vw] lg:text-[8.5vw] leading-[0.9] text-navy font-bold tracking-tight mb-12">
+            <h1 className="font-display text-[15vw] md:text-[9vw] lg:text-[8.5vw] leading-[0.9] text-navy font-black tracking-tighter mb-12">
               Charan Sanjeev <br /> Tadimalla
             </h1>
           </motion.div>
@@ -42,17 +42,17 @@ export const HeroSection = ({ id }: { id?: string }): JSX.Element => {
               transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-2xl"
             >
-              <p className="font-display italic text-2xl md:text-3xl lg:text-4xl text-navy/80 leading-tight mb-14">
-                Architecting the structural environments where <br className="hidden lg:block" /> bold ideas mature into high-scale ventures.
+              <p className="font-display text-2xl md:text-3xl lg:text-4xl text-navy/70 leading-[1.2] mb-14 font-medium max-w-xl">
+                Architecting the structural environments where <span className="text-royal">bold ideas</span> mature into high-scale ventures.
               </p>
 
               {/* Action Group */}
               <div className="flex flex-wrap gap-6">
-                <a href="#ventures" className="btn-primary group gap-3 border border-navy/10">
-                  View Ventures <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <a href="#ventures" className="btn-primary group gap-3 border border-navy/10 relative overflow-hidden">
+                  <span className="relative z-10">View Ventures</span> <ArrowUpRight size={16} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </a>
-                <a href="#contact" className="btn-secondary group gap-3 shadow-lg shadow-amber/10">
-                  Initiate Connect <MousePointer2 size={14} className="group-hover:scale-125 transition-transform" />
+                <a href="#contact" className="btn-secondary group gap-3 border border-navy/10 relative overflow-hidden">
+                  <span className="relative z-10">Initiate Connect </span> <ArrowUpRight size={16} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </a>
               </div>
             </motion.div>

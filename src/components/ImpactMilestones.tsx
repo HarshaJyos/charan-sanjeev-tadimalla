@@ -50,11 +50,11 @@ export const ImpactMilestones = ({ id }: { id?: string }): JSX.Element => {
             viewport={{ once: true }}
             className="mb-6"
           >
-            <span className="font-pinter text-[10px] font-bold uppercase tracking-[0.4em] text-royal px-4 py-2 bg-royal/5 rounded-full">
+            <span className="font-inter text-[10px] font-black uppercase tracking-[0.5em] text-royal px-4 py-2 bg-royal/5 rounded-full border border-royal/10">
               Impact & Milestones
             </span>
           </motion.div>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-navy leading-[1.1] tracking-tighter">
             A decade of measurable <br className="hidden md:block" /> impact and innovation.
           </h2>
         </div>
@@ -87,9 +87,9 @@ export const ImpactMilestones = ({ id }: { id?: string }): JSX.Element => {
                       className={`w-full md:w-[45%] ml-16 md:ml-0 ${isEven ? "md:text-right" : "md:text-left"}`}
                     >
                       <div className={`flex flex-col ${isEven ? "md:items-end" : "md:items-start"}`}>
-                        <span className="font-display text-6xl font-bold text-navy/7 mb-2 block">{item.year}</span>
-                        <h4 className="font-display text-2xl font-bold text-navy mb-2 tracking-tight">{item.title}</h4>
-                        <p className="font-inter text-xs font-bold uppercase tracking-widest text-emerald mb-4">{item.location}</p>
+                        <span className="font-display text-7xl font-black text-navy/5 mb-2 block tracking-tighter">{item.year}</span>
+                        <h4 className="font-display text-2xl font-black text-navy mb-2 tracking-tight">{item.title}</h4>
+                        <p className="font-inter text-[10px] font-black uppercase tracking-[0.3em] text-emerald mb-4">{item.location}</p>
 
                         <p className="font-inter text-muted leading-relaxed mb-6">
                           {item.impact}

@@ -31,9 +31,9 @@ export const Testimonials = ({ id }: { id?: string }): JSX.Element => {
   const prev = () => setIdx((i) => (i - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section id={id} className="section-padding bg-white relative">
+    <section id={id} className="section-padding bg-yellow-50 relative">
       <div className="container max-w-5xl mx-auto px-6 overflow-hidden">
-        
+
         <div className="flex justify-center mb-16">
           <Quote size={48} className="text-royal/10" />
         </div>
@@ -48,16 +48,16 @@ export const Testimonials = ({ id }: { id?: string }): JSX.Element => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center"
             >
-              <p className="font-display text-2xl md:text-3xl lg:text-4xl text-navy italic leading-relaxed mb-12 max-w-4xl">
+              <p className="font-display text-2xl md:text-3xl lg:text-4xl text-navy leading-[1.3] mb-12 max-w-4xl font-semibold tracking-tight">
                 &ldquo;{testimonials[idx].quote}&rdquo;
               </p>
-              
+
               <div className="flex flex-col items-center">
-                <span className="font-inter text-xs font-bold uppercase tracking-[0.3em] text-royal mb-2">
+                <span className="font-inter text-[10px] font-black uppercase tracking-[0.5em] text-royal mb-2">
                   {testimonials[idx].logo}
                 </span>
-                <p className="font-display text-xl font-bold text-navy">{testimonials[idx].author}</p>
-                <p className="font-inter text-[10px] uppercase font-bold tracking-widest text-muted">{testimonials[idx].role}</p>
+                <p className="font-display text-xl font-black text-navy">{testimonials[idx].author}</p>
+                <p className="font-inter text-[9px] uppercase font-black tracking-widest text-muted">{testimonials[idx].role}</p>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -69,9 +69,9 @@ export const Testimonials = ({ id }: { id?: string }): JSX.Element => {
             </button>
             <div className="flex gap-2">
               {testimonials.map((_, i) => (
-                <div 
-                  key={i} 
-                  className={`h-1 transition-all duration-500 rounded-full ${i === idx ? 'w-8 bg-royal' : 'w-2 bg-navy/10'}`} 
+                <div
+                  key={i}
+                  className={`h-1 transition-all duration-500 rounded-full ${i === idx ? 'w-8 bg-royal' : 'w-2 bg-navy/10'}`}
                 />
               ))}
             </div>

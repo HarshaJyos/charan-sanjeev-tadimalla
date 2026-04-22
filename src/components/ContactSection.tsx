@@ -22,18 +22,17 @@ export const ContactSection = ({ id }: { id?: string }): JSX.Element => {
   };
 
   return (
-    <section id={id} className="bg-white/20 pt-32 md:pt-40 py-24 md:py-32 pb-48 md:pb-64 relative overflow-hidden min-h-screen top-27">
+    <section id={id} className="bg-white/20 pt-32 md:pt-40 py-24 md:py-32 pb-48 md:pb-64 relative overflow-hidden min-h-screen top-20">
       <div className="container mx-auto px-6 max-w-7xl">
 
         {/* Massive Reference Heading */}
-        <div className="mb-20 md:mb-32 flex justify-center md:-mt-20">
-          <h2 className="font-display text-8xl font-bold text-black leading-[0.8]">
+        <div className="mb-64 md:mb-80 flex justify-start md:-mt-20 overflow-hidden">
+          <h2 className="font-display text-[15vw] md:text-8xl font-black text-navy leading-[0.8] tracking-tighter">
             Let&apos;s Connect
           </h2>
         </div>
 
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-24 md:gap-40 items-start">
 
           {/* Left Column: Socials & Contact Details */}
           <div className="flex flex-col gap-12 text-black/80">
@@ -49,16 +48,16 @@ export const ContactSection = ({ id }: { id?: string }): JSX.Element => {
 
             {/* Social Media Integration */}
             <div className="pt-8 flex flex-col gap-6">
-              <span className="font-inter text-[10px] uppercase font-bold tracking-[0.4em] text-black/40">Social Platforms</span>
+              <span className="font-inter text-[10px] uppercase font-black tracking-[0.5em] text-navy/40">Social Platforms</span>
               <div className="flex flex-col gap-4">
-                <a href="https://linkedin.com/in/charansanjeev" target="_blank" className="flex items-center gap-3 font-inter text-sm hover:text-royal transition-colors group">
-                  <Linkedin size={16} className="text-black/20 group-hover:text-royal" /> LinkedIn
+                <a href="https://linkedin.com/in/charansanjeev" target="_blank" className="flex items-center gap-3 font-inter text-sm font-semibold hover:text-royal transition-colors group">
+                  <Linkedin size={16} className="text-navy/20 group-hover:text-royal" /> LinkedIn
                 </a>
-                <a href="https://instagram.com/charan_sanjeev" target="_blank" className="flex items-center gap-3 font-inter text-sm hover:text-amber transition-colors group">
-                  <Instagram size={16} className="text-black/20 group-hover:text-amber" /> Instagram
+                <a href="https://instagram.com/charan_sanjeev" target="_blank" className="flex items-center gap-3 font-inter text-sm font-semibold hover:text-amber transition-colors group">
+                  <Instagram size={16} className="text-navy/20 group-hover:text-amber" /> Instagram
                 </a>
-                <a href="https://twitter.com" target="_blank" className="flex items-center gap-3 font-inter text-sm hover:text-royal transition-colors group">
-                  <Twitter size={16} className="text-black/20 group-hover:text-royal" /> Twitter / X
+                <a href="https://twitter.com" target="_blank" className="flex items-center gap-3 font-inter text-sm font-semibold hover:text-royal transition-colors group">
+                  <Twitter size={16} className="text-navy/20 group-hover:text-royal" /> Twitter / X
                 </a>
               </div>
             </div>
@@ -111,17 +110,7 @@ export const ContactSection = ({ id }: { id?: string }): JSX.Element => {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="
-      px-10 py-3
-      bg-black text-white
-      text-[20px] font-medium uppercase tracking-wider
-      rounded-md
-      border border-white/10
-      transition-all duration-200
-      hover:border-black
-      active:scale-[0.98]
-      disabled:opacity-50 disabled:cursor-not-allowed
-    "
+                    className="btn-primary w-full md:w-auto px-12 py-4"
                   >
                     {status === "loading" ? "Processing..." : "Submit"}
                   </button>

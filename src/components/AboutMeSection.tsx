@@ -45,10 +45,10 @@ export const AboutMeSection = ({ id }: { id?: string }): JSX.Element => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="font-inter text-xs font-bold uppercase tracking-[0.4em] text-royal mb-10">
+              <h2 className="font-inter text-[10px] font-black uppercase tracking-[0.5em] text-royal mb-8">
                 The Founder & Architect
               </h2>
-              <h3 className="font-display text-4xl md:text-5xl lg:text-6xl text-navy leading-[1.1] mb-12 font-bold tracking-tight">
+              <h3 className="font-display text-4xl md:text-5xl lg:text-6xl text-navy leading-[1.1] mb-12 font-black tracking-tighter">
                 Empowering the next generation of global innovators.
               </h3>
             </motion.div>
@@ -60,14 +60,14 @@ export const AboutMeSection = ({ id }: { id?: string }): JSX.Element => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col gap-8 mb-16"
             >
-              <p className="font-inter text-lg lg:text-xl text-charcoal leading-relaxed font-medium">
+              <p className="font-inter text-lg lg:text-xl text-charcoal/90 leading-relaxed font-semibold">
                 Charan Sanjeev Tadimalla is an entrepreneurship development professional and ecosystem builder.
                 His mission is to move beyond theory, architecting the structural environments where founders can fail fast, fix intelligently, and scale exponentially.
               </p>
 
               <div className="h-[1px] w-full bg-navy/5" />
 
-              <p className="font-inter text-black leading-relaxed">
+              <p className="font-inter text-charcoal leading-relaxed">
                 As the EDC Coordinator at Aditya University and a certified ILO Trainer, Charan has bridged the gap between academic research and commercial viability.
                 Starting his own journey with <strong>GetMyTailor</strong>—India&apos;s first vernacular online tailoring platform—he experienced first-hand the friction points of building from zero.
                 Today, he uses that operational empathy to mentor over 200 startups across sectors.

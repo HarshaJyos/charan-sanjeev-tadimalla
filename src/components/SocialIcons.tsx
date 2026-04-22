@@ -16,8 +16,8 @@ export const SocialIcons = (): JSX.Element => {
       href: "https://www.linkedin.com/in/charansanjeev",
       icon: (
         <Linkedin
-          size={24}
-          className="text-white hover:text-gray-300 transition-colors duration-300"
+          size={20}
+          className="text-navy/60 hover:text-royal transition-colors duration-300"
         />
       ),
     },
@@ -26,8 +26,8 @@ export const SocialIcons = (): JSX.Element => {
       href: "https://www.instagram.com/charan_sanjeev?igsh=ZWZhNnpieW43eDgy",
       icon: (
         <Instagram
-          size={24}
-          className="text-white hover:text-gray-300 transition-colors duration-300"
+          size={20}
+          className="text-navy/60 hover:text-royal transition-colors duration-300"
         />
       ),
     },
@@ -36,8 +36,8 @@ export const SocialIcons = (): JSX.Element => {
       href: "https://www.facebook.com/charansanjeev",
       icon: (
         <Facebook
-          size={24}
-          className="text-white hover:text-gray-300 transition-colors duration-300"
+          size={20}
+          className="text-navy/60 hover:text-royal transition-colors duration-300"
         />
       ),
     },
@@ -46,8 +46,8 @@ export const SocialIcons = (): JSX.Element => {
       href: "mailto:cstadimalla@gmail.com",
       icon: (
         <Mail
-          size={24}
-          className="text-white hover:text-gray-300 transition-colors duration-300"
+          size={20}
+          className="text-navy/60 hover:text-royal transition-colors duration-300"
         />
       ),
     },
@@ -56,8 +56,8 @@ export const SocialIcons = (): JSX.Element => {
       href: "tel:+919642777062",
       icon: (
         <Phone
-          size={24}
-          className="text-white hover:text-gray-300 transition-colors duration-300"
+          size={20}
+          className="text-navy/60 hover:text-royal transition-colors duration-300"
         />
       ),
     },
@@ -65,7 +65,7 @@ export const SocialIcons = (): JSX.Element => {
 
   return (
     <motion.div
-      className="hidden lg:flex fixed right-4 top-1/2 -translate-y-1/2 flex-col items-center gap-4 bg-white/5 backdrop-blur-md border border-white/20 rounded-[16px] p-4 shadow-lg"
+      className="hidden lg:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col items-center gap-6 bg-white/40 backdrop-blur-xl border border-navy/5 rounded-full p-5 shadow-2xl z-[90]"
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
